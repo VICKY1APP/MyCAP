@@ -9,7 +9,13 @@ service CatalogService {
         {
             ZTCompany.companycode,
             ZTCompany.compnayname,
-            ZTDefects.obj_no,
-            ZTDefects.obj_rev
+            ZTDefects.developer_id,
+            Sum(
+                ZTDefects.obj_rev
+            )        as total_rev    : Integer
         }
+        group by
+            ZTCompany.companycode,
+            ZTCompany.compnayname,
+            ZTDefects.developer_id
 }
