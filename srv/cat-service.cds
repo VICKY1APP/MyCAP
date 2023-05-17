@@ -1,4 +1,5 @@
 using norris.report as crc from '../db/data-module';
+using CV_USERDETAILS from '../db/data-module';
 
 
 service CatalogService {
@@ -17,5 +18,13 @@ service CatalogService {
         group by
             ZTCompany.companycode,
             ZTCompany.compnayname,
-            ZTDefects.developer_id
+            ZTDefects.developer_id;
+
+  entity totalsrv as select from CV_USERDETAILS as user
+             { 
+              user.COMPANYCODE,
+              user.DEVELOPER_ID
+
+             } 
+
 }

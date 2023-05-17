@@ -1,0 +1,7 @@
+VIEW "CV_COMPDETAIL" AS
+SELECT 
+  Tcompany.compnayname,
+  Tdefect.developer_id
+FROM NORRIS_REPORT_ZTCOMPANY AS Tcompany
+  LEFT JOIN NORRIS_REPORT_ZTDEFECTS AS Tdefect
+ ON Tcompany.companycode = Tdefect.companycode
